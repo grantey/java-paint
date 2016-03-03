@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Начертательная геометрия</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css" type="text/css">   
+        <script type="text/javascript" src="events.js"></script>
+    </head>
+    <body>
+        <div id="canvas1" class="back">
+            <div id="head1" class="canvas_head">
+                <span>Новый слайд</span>
+            </div>
+            <canvas id='canvas' style="z-index: 1">
+                Canvas not supported
+            </canvas>
+            <canvas id='canvas_back' style="z-index: 0">
+                Canvas not supported
+            </canvas>
+        </div>   
+        <div id="canvas2" class="back">
+            <div id="head2" class="canvas_head">
+                <span>Инструменты</span>
+            </div>
+            <canvas id='canvas_icon'>
+                Canvas not supported
+            </canvas>
+        </div>  
+        <div id="canvas3" class="back">
+            <div id="head3" class="canvas_head">
+                <span>Настройки</span>                
+            </div>
+            <div style="padding: 5px">
+                <input id="gridCheckbox" type='checkbox' checked />Сетка<br>
+                <input id="coordsCheckbox" type='checkbox' />Направляющие<br>
+                <input id="helpCheckbox" type='checkbox' checked />Подсказки
+                <button id="newslide" class="button">Создать слайд</button>
+            </div>
+        </div>  
+        <div id="canvas4" class="back">      
+            <div id="coords">(123, 123)</div>
+            <input type="color" hidden />
+        </div>  
+        <div id="canvas5" class="back">
+            <div id="head5" class="canvas_head">
+                <span>Слайды</span>
+            </div>
+        </div>
+        
+        <div id="w0" class="floatingControls">
+            <p>Отрезок</p>
+            <div id="w0c">Длина: 0</div>
+        </div>        
+        <div id="w1" class="floatingControls">
+            <p>Прямоугольник</p>
+            <div id="w1c">Ширина: 0<br>Высота: 0</div>
+        </div>
+        <div id="w2" class="floatingControls">
+            <p>Дуга</p>
+            <span>Укажите центр, радиус, граничные точки</span>
+            <div id="w2c">Радиус: 0<br>Угол (гр): 0</div>
+        </div>
+        <div id="w3" class="floatingControls">
+            <p>Окружность</p>
+            <span>Укажите центр и радиус</span>
+            <div id="w3c">Радиус: 0</div>
+        </div>   
+        
+        <script type="text/javascript" src="core.js"></script>
+        <script>
+            init();
+            onload = function ()
+            {                
+                new DragObject(document.getElementById('head1'), document.getElementById('canvas1'));
+                new DragObject(document.getElementById('head2'), document.getElementById('canvas2'));
+                new DragObject(document.getElementById('head3'), document.getElementById('canvas3'));
+                new DragObject(document.getElementById('head5'), document.getElementById('canvas5'));
+                new DragObject(document.getElementById('canvas4'), document.getElementById('canvas4'));
+                new DragObject(document.getElementById('w0'), document.getElementById('w0'));
+                new DragObject(document.getElementById('w1'), document.getElementById('w1'));
+                new DragObject(document.getElementById('w2'), document.getElementById('w2'));
+                new DragObject(document.getElementById('w3'), document.getElementById('w3'));
+            };
+        </script>    
+    </body>
+</html>
